@@ -1,0 +1,42 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="com.demo.OpenWeatherSample.controller.Main" displayBlock="true">
+	<App id="idAppControl">
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<Input xmlns="sap.m" id="input0" placeholder="Enter City" fieldWidth="50%" width="50%"/>
+					<Button xmlns="sap.m" text="Get Report" press=".onPress" id="button0"/>
+					<Table items="{/items}" columns="{/cols}" id="__table0">
+						<items>
+							<ColumnListItem counter="0" id="__item0">
+								<cells>
+									<Text maxLines="0" text="{main}"/>
+									<Text maxLines="0" text="{temp}"/>
+									<Text maxLines="0" text="{units}"/>
+									<Text maxLines="0" text="{humidity}"/>
+									<sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" src="{icon}" size="2em" id="icon0"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+						<columns>
+							<Column>
+								<header>
+									<Label text="{name}"/>
+								</header>
+							</Column>
+						</columns>
+					</Table>
+					<TileContainer tiles="{/items}">
+					<StandardTile icon="{icon}" number="{temp}"
+				numberUnit="{units}"
+				title="{/city}">
+						<!--<TileContent unit="{/units}" footer="Footer Text">-->
+						<!--	<NumericContent value="{temp}"/>-->
+						<!--</TileContent>-->
+					</StandardTile>
+					</TileContainer>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
